@@ -1,6 +1,6 @@
 const catchAsync = require('./../utils/catchAsync');
 const AppError = require('../utils/AppError');
-const { sampledb } = require('../models/db')
+const { vehicledb } = require('../models/db')
 
 
 exports.getUsers = catchAsync(async (req, res, next) => {
@@ -19,7 +19,7 @@ exports.getUserById = catchAsync(async (req, res, next) => {
 
 const test = async () => {
     try {
-        //     const user = await sampledb.query(`
+        //     const user = await vehicledb.query(`
         //     INSERT INTO post 
         // (title, content, image, created_at, updated_at)
         // VALUES 
@@ -36,7 +36,7 @@ const test = async () => {
 exports.createUser = catchAsync(async (req, res, next) => {
 
     await test();
-    // const user = await sampledb.query(`
+    // const user = await vehicledb.query(`
     // INSERT INTO post 
     // (title, content, image, created_at, updated_at)
     // VALUES 
