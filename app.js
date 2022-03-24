@@ -26,11 +26,6 @@ app.use(express.json());
 // parsing incoming requests with urlencoded body payloads
 app.use(express.urlencoded({ extended: true }));
 
-// serving the static files
-
-// app.use(express.static(path.join(__dirname, "public")));  // for one-sided nodejs project
-app.use(express.static(path.resolve(__dirname, './client/build'))) // for react-app
-
 // handling gzip compression
 app.use(compression());
 
@@ -49,9 +44,7 @@ app.all('*', (req, res, next) => {
     next(new AppError(httpStatus.NOT_FOUND, 'Not found'));
 });
 
-app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
-});
+
 
 // converting error to AppError, if needed
 app.use(errorConverter);

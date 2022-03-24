@@ -2,7 +2,6 @@ const Sequelize = require("sequelize");
 
 // creating the auth url
 const url = process.env.VEHICLE_DB_URL;
-console.log(url, "url");
 // creating the db instance
 const vehicledb = new Sequelize(url, {
 

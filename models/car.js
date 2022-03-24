@@ -7,8 +7,20 @@ module.exports = vehicledb.define(
     "car",
     {
         color: {
-            type: Sequelize.ENUM("red", "blue", "black", "white"),
-            allowNull: false,
-        }
+            type: Sequelize.TEXT,
+            allowNull: true,
+
+        },
+        headlight: {
+            type: Sequelize.BOOLEAN,
+            defaultValue: false,
+        },
+        wheel: {
+            type: Sequelize.TEXT,
+            allowNull: true,
+        },
+    },
+    {
+        timestamp: true
     }
 );
