@@ -1,23 +1,37 @@
 const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/AppError');
+const { vehicledb } = require('../models/db')
 const { Car } = require('../models');
 
-exports.getCarsByColor = catchAsync(async (req, res, next) => {
-    const color = req.params.color;
-    const cars = await Car.findAll({
-        where: {
-            color: color
-        }
-    })
-    res.status(200).send({
-        status: 'success',
-        data: cars,
-        text: 'Successfully fetched cars'
 
-    });
+
+exports.getVehiclesByColor = catchAsync(async (req, res, next) => {
+    const vehicle_type = req.params.vehicle_type;
+    const color = req.params.color;
+
+    if (vehicle_type === "car") {
+
+        const cars = await Car.findAll({
+            where: {
+                color: color
+            }
+        })
+        res.status(200).send({
+            status: 'success',
+            data: cars,
+            text: 'Successfully fetched cars'
+
+        });
+    } else if (vehicle_type === "bus") {
+
+    } else if (vehicle_type === "boat") {
+
+    } else {
+        return next(new AppError(400, 'vehicle_type must be car, bus or boat', "invalid input"));
+    }
 });
 
-exports.updateCarById = catchAsync(async (req, res, next) => {
+exports.updateVehicleById = catchAsync(async (req, res, next) => {
     const id = req.params.id;
     const headlight = req.body.headlight;
     const wheel = req.body.wheel;
@@ -44,7 +58,7 @@ exports.updateCarById = catchAsync(async (req, res, next) => {
     });
 });
 
-exports.deleteCarById = catchAsync(async (req, res, next) => {
+exports.deleteVehicleById = catchAsync(async (req, res, next) => {
     const id = req.params.id;
 
     const car = await Car.destroy({ where: { id: id } });
@@ -55,7 +69,7 @@ exports.deleteCarById = catchAsync(async (req, res, next) => {
     });
 });
 
-exports.createCar = catchAsync(async (req, res, next) => {
+exports.createVehicle = catchAsync(async (req, res, next) => {
     const color = req.body.color;
     const headlight = req.body.headlight;
     const wheel = req.body.wheel;
