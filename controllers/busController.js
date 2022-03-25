@@ -17,3 +17,16 @@ exports.getBusesByColor = catchAsync(async (req, res, next) => {
     });
 });
 
+exports.createBus = catchAsync(async (req, res, next) => {
+    const color = req.body.color;
+
+    const bus = await Bus.create({
+        color: color,
+    });
+
+    res.status(200).send({
+        status: 'success',
+        data: bus,
+    });
+})
+

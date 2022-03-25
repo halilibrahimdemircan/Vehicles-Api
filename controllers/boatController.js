@@ -16,3 +16,16 @@ exports.getCarsByColor = catchAsync(async (req, res, next) => {
 
     });
 });
+
+exports.createBoat = catchAsync(async (req, res, next) => {
+    const color = req.body.color;
+
+    const boat = await Boat.create({
+        color: color,
+    });
+
+    res.status(200).send({
+        status: 'success',
+        data: boat,
+    });
+})

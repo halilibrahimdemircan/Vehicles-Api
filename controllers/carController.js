@@ -59,12 +59,8 @@ exports.createCar = catchAsync(async (req, res, next) => {
     const color = req.body.color;
     const headlight = req.body.headlight;
     const wheel = req.body.wheel;
-    // const data = {
-    // }
 
-    // if (wheel !== undefined) {
-    //     data[wheel] = wheel
-    // }
+
 
     if (!(headlight == "on" || headlight == "off" || headlight == undefined)) {
         return next(new AppError(400, 'headlight must be on or off', "invalid input"));
