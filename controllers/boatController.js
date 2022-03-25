@@ -2,7 +2,7 @@ const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/AppError');
 const { Boat } = require('../models');
 
-exports.getCarsByColor = catchAsync(async (req, res, next) => {
+exports.getBoatsByColor = catchAsync(async (req, res, next) => {
     const color = req.params.color;
     const boats = await Boat.findAll({
         where: {

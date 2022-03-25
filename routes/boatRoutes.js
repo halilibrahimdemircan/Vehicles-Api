@@ -4,6 +4,7 @@ const boatController = require('../controllers/boatController');
 
 router
     .get('/:color', boatController.getBoatsByColor)
+    .post('/', boatController.createBoat)
 
 
 
