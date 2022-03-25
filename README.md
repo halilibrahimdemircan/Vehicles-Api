@@ -27,7 +27,7 @@
             color(required): "string",
             
             
-- NOTE : This is how I understood the situation in the task and created the desired endpoints in the task. Afterwards, I created vehicleRoutes and vehicleController in order to make the job easier, and made the operations that we had done with a total of 15 requests, with 5 requests. Respects
+- NOTE : This is how I understood the situation in the task and created the desired endpoints in the task. Afterwards, I created vehicleRoutes and vehicleController in order to make the job easier, and made the operations that we had done with a total of 15 endpoints, with 5 endpoints. Respects
 ## REQUESTS
 --------------------------------------------------------------
 // for getting cars by color
